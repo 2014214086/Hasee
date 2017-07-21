@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>register.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <link rel="stylesheet" type="text/css" href="css/RegisterStyle.css" />
+	<script src="js/jquery-1.8.0.js"></script>
+    
+    
+<style type="text/css">
+	.code{
+	height:30px;
+	width:60px;
+	text-decoration:none;
+	font-family:Arial,宋体;
+	font-style:italic;
+	color:green;
+	border:0;
+	letter-spacing:3px;
+	font-weight:bolder;
+	padding:auto; 
+	}
+</style>
+<script language="javascript" type="text/javascript">
+     $(function(){
+     $("#user").blur(function(){
+     var vv=$("#user").val();
+       if(vv!=""){
+		//用户名没有被占用
+		 $.ajax({
+			  type:"get",
+			  url:"UserServlet?tt=new Date()",
+			  data:{uname:vv,flag:"checkUserName"},
+			  success:function(recv_data){
+				  if(recv_data==1){
+					  $("#msg_user").html("用户名可用");
+					  $("#msg_user").css({color:"green"});
+				  }
+                  if(recv_data==0){
+					  $("#msg_user").html("用户名被占用");
+					  $("#msg_user").css({color:"red"});
+					  $("#user").val("");  
+				  }
+			  } 
+		 }); 
+		flag=true;
+	}
+	else{
+		$("#msg_user").html("用户名不能为空");
+		$("#msg_user").css({color:"red"});
+	}
+     
+     })
+     
+     
+     
+     createCode();
+     //第一次输入密码格式正确
+        $("#psw").blur(function(){
+        var psw=$("#psw").val();
+       
+	if(psw.length<6||psw.length>20){
+		$("#msg_psw").html("密码应为6到20位之间!");
+		$("#msg_psw").css({color:"#F20D0D"});
+	}else{
+		$("#msg_psw").html("密码正确");
+		$("#msg_psw").css({color:"#39EA0D"});
+		
+	}        
+        });
+        
+        
+        //判断两次密码是否相同
+      $("#repsw").blur(function(){
+            var psw=$("#psw").val();
+            var repsw=$(this).val();
+            if(psw==""){
+            	$("#msg_repsw").html("请先输入密码!");
+            	$("#msg_repsw").css({color:"#F20D0D"});
+            }
+            else if(psw!=repsw){
+            $("#msg_repsw").html("两次密码不一致!");
+            $("#msg_repsw").css({color:"#F20D0D"});
+            }else{
+               $("#msg_repsw").html("密码一致");
+		       $("#msg_repsw").css({color:"#39EA0D"});
+            }
+        }) 
+
+        //判断用户名不能为空
+        $("#user").blur(function(){
+            if($(this).val()==""){
+           		$("#msg_user").html("用户名不能为空!");
+				$("#msg_user").css({color:"#F20D0D"});
+			}
+			else{
+			 $("#msg_user").html("");
+			}
+        })
+        
+        //判断验证码
+        $("#ValidateCode").blur(function(){
+        var inputCode = document.getElementById("ValidateCode").value.toUpperCase();
+        if(inputCode.length <=0) {
+       		alert("请输入验证码！");
+     		return false;
+        }
+		else if(inputCode != code ){
+   			alert("验证码输入错误！");
+   			createCode();
+   			document.getElementById("ValidateCode").value = "";
+  			return false;
+		}
+
+        })
+        
+        //判断是否同意协议
+        $("#bt").click(function(){
+            var psw=$("#psw").val();
+        	if($(psw)==""){alert("密码不能为空！");return false;}
+             if($("input[type='checkbox']").is(':checked')){
+               //准备提交
+             }else{
+             alert("未同意协议!");
+             return false;
+             }
+        })
+     })
+var code ; //在全局 定义验证码
+function createCode(){ 
+code = new Array();
+var codeLength = 4;//验证码的长度
+var checkCode = document.getElementById("checkCode");
+checkCode.value = "";
+var selectChar = new Array(2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','J','K','L','M','N','P','Q','R','S','T','U','V','W','X','Y','Z');
+for(var i=0;i<codeLength;i++) {
+   var charIndex = Math.floor(Math.random()*32);
+   code +=selectChar[charIndex];
+}
+if(code.length != codeLength){
+   createCode();
+}
+checkCode.value = code;
+}
+
+
+</script>
+
+
+        
+  </head>
+  
+  <body>
+    <div class="h">
+		<div class="h1">
+			<a href="index.jsp"  class="l1"></a>
+			<p class="h2">欢迎注册</p>
+		</div>
+	</div>
+	<form action="UserServlet?flag=register" method="post" onsubmit="checkForm()" >
+		<div class="m">
+			<div class="p">
+				<ul>
+					<li><label for="user">用户名：</label><p class="p1"><input type="text" id="user" name="uname" onBlur="checkUser_reg()" placeholder="请输入你的手机号或者邮箱"></p>
+					<span id="msg_user">* 请用邮箱或手机号</span>
+					</li>
+		
+					<li><label for="psw">请设置密码：</label><p class="p2"><input type="password" id="psw" name="pass" placeholder="请输入密码"></p>
+					<span id="msg_psw">* 6-20位字符，建议由字母，数字和符号两种以上组合</span>
+					</li>
+		
+					<li><label for="repsw">请确认密码：</label><p class="p2"><input type="password" id="repsw" name="pass" placeholder="请输入密码"></p>
+					<span id="msg_repsw">* 请再次输入密码</span>
+					</li>
+		
+					<li>
+					
+					<label for="ValidateCode">验证码：</label><p class="p3"><input type="text" id="ValidateCode"></p>
+					
+					<input type="button" id="checkCode" class="code" /> <a href="#" onClick="createCode()" style=" font-size:15px; color: #f33c11; text-decoration:none;">看不清楚</a>
+					
+					</li>
+					<li class="p_li"><label> &nbsp;</label><label><input type="checkbox" id="chkIsRead" name="agree" value="0"/><span style="display:inline-block; font-size:10px; color:black;">我已阅读并同意</span></label>
+					<a href="http://www.hasee.net/other/RegAgreement.aspx"  class="agreement" target="_blank">《神舟用户注册协议》</a>
+					</li>
+					<li><br><label> &nbsp;</label>
+					<input type="submit" value="注册" class="bt" id="bt"/></li>
+               		<li><div align="left"><label>&nbsp;</label></div></li>
+				</ul>
+			</div>
+		</div>
+	</form>
+  </body>
+</html>
+<SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

@@ -1,0 +1,181 @@
+*{
+	margin:0;
+}
+a{
+	text-decoration:none;
+	color:black;
+}
+li{
+	list-style-type:none;
+}
+label{
+             display: inline-block;/*将行内元素转成行内块状元素  */
+             margin-right: 5px;
+             width: 100px;
+      }
+input[type="text"],input[type="password"]{
+          padding-left:20px;
+          height:30px;
+          width:150px;
+          margin:5px;
+          border:none;/*去掉输入框默认的边框 */
+          border-radius 4px;
+          border-bottom: 1px solid #ccc;
+}
+input[type="text"]:focus,input[type="password"]:focus{
+         border-bottom: 1px solid #ccc;
+         outline:none; /*去掉输入框默认的轮廓 */
+         box-shadow:0px 2px 5px rgba(150,230,255,1);
+         /*边框阴影 ：x偏移量  y偏移量  模糊值  阴影颜色 */
+}
+
+div.top{
+	width:100%;
+	height:40px;
+	background-color:#f4f4f4;
+}
+.top p{
+	margin-left:170px;
+	height:40px;
+	font-size:12;
+	line-height:40px;
+}
+.top p span{
+	font-size:12;
+	line-height:40px;
+	float:left;
+}
+.top p img{
+	position:relation;
+	margin-top:5px;
+	margin-left:10px;
+}
+.top-mid{
+	height:100px;
+	width:100%;
+}
+.search{
+	float:left;
+	width:300px;
+	height:35px;
+	margin-left:155px;
+	margin-top:20px;
+}
+.search img{
+	height:33px;
+	width:33px;
+	margin-top:0px;
+	border:1px solid #ccc;
+	float:left;
+	margin-left:0;
+	border-left:0;
+}
+.shopcar{
+	height:33px;
+	width:120px;
+	line-height:38px;
+	border:1px solid #ccc;
+	margin-left:15px;
+	margin-top:20px;
+	float:left;
+}
+.menu{
+	width:1586px;
+	height:48px;
+	background-color:#D61818;
+	margin-top:0;
+}
+.menulist{
+	width:80%;
+	height:48px;
+	margin-left:10%;
+}
+.item_First{
+	width:220px;
+	height:48px;
+	background-color:#F33C11;
+	line_height:48px;
+	float:left;
+	text-align:center;
+	color=white;
+}
+
+.item_First_2{
+	width:140px;
+	height:48px;
+	background-color:#D61818;
+	line_height:48px;
+	float:left;
+	text-align:center;
+}
+.item_First_2:hover{
+	background-color:#F33C11;
+}
+.item_First_2 span{
+	height:48px;
+	width:140px;
+	color:white;
+	font-size:18px;
+	text-align:center;
+	line-height:48px;
+}
+.item_First div.d2{
+	position:relative;
+	margin-top:0px;
+	height:450px;
+	width:220px;
+	background-color:#F33C11;
+	display:none;
+}
+.item_First:hover div.d2{
+	display:block;
+	z-index:5555;
+}
+
+input[type="text"].search{
+          padding-left:20px;
+          height:35px;
+          width:260px;
+          border:none;/*去掉输入框默认的边框 */
+          border-radius 4px;
+          border: 1px solid #ccc;
+          float:left;
+          margin-top:0;
+          margin-right:0;
+}
+span.classification{
+	height:48px;
+	width:220px;
+	color:white;
+	font-size:18px;
+	text-align:center;
+	line-height:48px;
+}
+div.item_second{
+	height:48px;
+	width:220px;
+	color:white;
+	font-size:18px;
+	text-align:center;
+	line-height:48px;
+}
+.item_third{
+	width:900px;
+	height:450px;
+	display:none;
+	background-color:white;
+	float:left;
+	position:absolute;
+	top:0px;
+	left:220px;
+}
+.item_second:hover{
+	background-color:white;
+	color:black;
+}
+.item_First_2 span a{
+	color:white;
+}
+.item_second:hover div{
+	display:block;
+}

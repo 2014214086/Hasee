@@ -1,0 +1,112 @@
+.logo,.logo2{
+	float: left;
+	display: block;
+	width: 254px;
+	height: 33px;
+	margin-top: 39px;
+	margin-bottom: 38px;
+	background: url("../images/logo.png") no-repeat center;
+}
+.logo2{margin: 14px 0;}
+
+.head_welcome{
+	float: left;
+	font-size: 24px;
+	height: 33px;
+	line-height: 33px;
+	margin: 14px 0 0 20px;
+	padding-left: 17px;
+	border-left: 1px solid #ddd;
+}
+
+.login_main{
+	width: 100%;
+	max-width: 1920px;
+	position: relative;
+}
+.login_main_img{width: 100%;}
+.login{
+	position: absolute;
+	z-index: 5;
+	top: 0;
+	left: 350px;
+	right: 0;
+	width: 1240px;  
+	margin: 0 auto; 
+} 
+
+.login_d{
+	margin-top: 200px;
+	width: 290px;
+	height: 370px;
+	background: #fff;
+	padding: 0 300px; 
+}  
+
+.login_d h2{
+	font-weight: normal;
+	font-size: 18px;
+	height: 54px;
+	line-height: 54px;
+	text-align:center;
+}
+.login_d .login_p1,.login_d .login_p2{
+	height: 38px; 
+	border: 1px solid #ddd;
+	padding-left: 38px; 
+}
+.login_d .login_p1{margin-bottom: 28px;background: url("../images/login_icon1.png") no-repeat 0 0;}
+.login_d .login_p2{background: url("../images/login_icon1.png") no-repeat 0 -69px;}
+.login_d input[type=text],.login_d input[type=password]{
+	width: 249px;
+	height: 36px;
+	line-height: 38px;
+	text-indent: 8px;
+	border:0;
+	border-left:1px solid #ccc;
+}
+.login_d label,.reg label{
+	display: inline-block;
+	margin: 16px auto;
+	line-height: 20px;
+	cursor: pointer;
+}
+.login_d input[type=checkbox],.reg .reg_li input[type=checkbox]{
+	vertical-align: middle;
+	margin-right: 5px;
+	margin-top: -2px;
+}
+.login_d .login_btn,.reg .reg_btn,.reg .rec_btn,.rec .rec_a{
+	width: 290px;
+	height: 34px;
+	line-height: 34px;
+	background: #f33c11;
+	font-size: 18px;
+	color: #fff;
+	-moz-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+.login_d .login_p3{
+	line-height: 20px;
+	margin: 20px auto 10px;
+	text-align:center;
+}
+.login_d .login_p3 a{color: #f33c11;margin-right: 18px;}
+.login_d .login_p3 i{
+	font-family: simsun;
+	font-style: normal;
+	color: #f33c11;
+	margin-left: 4px;
+	
+}
+.login_other{overflow: hidden;}
+.login_other span{display: block;line-height: 20px;margin-bottom: 8px;}
+.login_other a{
+	float: left;
+	display: inline-block;
+	width: 35px;
+	height: 29px;
+	margin-right: 30px;
+}
